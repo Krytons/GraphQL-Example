@@ -19,6 +19,10 @@ module.exports = {
 
     JWT_SECRET: env('jwt-secret') || 'secret',
 
+    JWT_EXPIRES_STRING: env('jwt-expires') || '1d',
+
+    JWT_EXPIRES_HOURS: env('jwt-expires') || '24',
+
     MAIL_SERVICE: env('mail_service') || 'smtp.gmail.com',
 
     MAIL_HOST: env('mail_host') || 'gmail',

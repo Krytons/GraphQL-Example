@@ -2,9 +2,11 @@ const debug = require('debug')('app');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
 const {graphqlHTTP} = require ('express-graphql');
 const { HOST, DB_NAME, PORT } = require('./env');
 const schemas = require('./schemas');
+
 
 //Database connection, using mongoose
 debug('Database connection is running');
@@ -22,8 +24,11 @@ db.once('open', () => {
 debug('App setup is running');
 const app = express(); 
 app.listen(normalizePort(PORT));
-// Enable CORS
+
+//Enable Cors
 app.use(cors());
+//Enable Helmet
+//app.use(helmet());
 
 //Single endpoint setup
 app.use('/graphql', graphqlHTTP((req) => {
